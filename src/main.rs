@@ -1,5 +1,3 @@
-use rocket::Request;
-
 #[macro_use] extern crate rocket;
 
 #[get("/")]
@@ -13,7 +11,7 @@ fn index2() -> &'static str {
 }
 
 #[catch(404)]
-fn not_found(req: &Request) -> &'static str {
+fn not_found() -> &'static str {
     "404"
 }
 
