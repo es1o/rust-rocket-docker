@@ -12,7 +12,7 @@ fn index2() -> &'static str {
 
 #[catch(404)]
 fn not_found() -> &'static str {
-    "404"
+    "czterysta i cztery"
 }
 
 

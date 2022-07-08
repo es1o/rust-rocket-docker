@@ -1,0 +1,9 @@
+[default.shutdown]
+ctrlc = true
+signals = ["term", "hup"]
+grace = 5
+mercy = 5
+
+[release]
+address = "0.0.0.0"
+log_level = "normal"

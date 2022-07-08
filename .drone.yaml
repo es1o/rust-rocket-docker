@@ -8,7 +8,7 @@ platform:
 
 steps:
 - name: test
-  image: rust:1.61
+  image: rust:1.62.0
   commands:
   - cargo build --verbose --all
   - cargo test --verbose --all
