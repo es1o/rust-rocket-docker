@@ -1,0 +1,3 @@
+# rust-rocket-docker
+
+Sample application for demonstrate rust CI/CD process...
