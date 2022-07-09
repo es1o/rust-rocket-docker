@@ -11,17 +11,16 @@ COPY src/ /build/src/
 
 RUN cargo build --release
 
-
 FROM gcr.io/distroless/cc
 
 WORKDIR /app
 
 COPY Rocket.toml /app
 
-COPY --from=builder --chown=nonroot:nonroot /build/target/release/rocket /app
+COPY --from=builder --chown=nonroot:nonroot /build/target/release/rocket-test /app
 
 USER nonroot
 
 EXPOSE 8000
 
-CMD ["/app/rocket"]
+CMD ["/app/rocket-test"]
