@@ -2,26 +2,29 @@
 
 #[get("/")]
 fn index() -> &'static str {
-    "Hello, world!"
+  "Hello, world!"
 }
 
 #[get("/esio")]
 fn index2() -> &'static str {
-    "Hello, world!"
+  "Hello, world!"
 }
 
 #[catch(404)]
 fn not_found() -> &'static str {
-    "czterysta i cztery"
+  "czterysta i cztery"
 }
 
 
 #[launch]
 fn rocket() -> _ {
-    rocket::build()
-        .mount("/", routes![index])
-        .mount("/", routes![index2])
-        .register("/", catchers![not_found])
+  let figment = rocket::Config::figment()
+    .merge(("address", "0.0.0.0"));
+
+  rocket::custom(figment)
+    .mount("/", routes![index])
+    .mount("/", routes![index2])
+    .register("/", catchers![not_found])
 }
 
 #[cfg(test)]
